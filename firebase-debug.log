@@ -1,0 +1,86 @@
+[debug] [2024-10-28T02:53:52.922Z] ----------------------------------------------------------------------
+[debug] [2024-10-28T02:53:52.924Z] Command:       /usr/local/bin/node /Users/aditithakkar/cross-platform/GradebookApp-adithakk/node_modules/.bin/firebase login
+[debug] [2024-10-28T02:53:52.924Z] CLI Version:   13.23.0
+[debug] [2024-10-28T02:53:52.924Z] Platform:      darwin
+[debug] [2024-10-28T02:53:52.924Z] Node Version:  v20.17.0
+[debug] [2024-10-28T02:53:52.924Z] Time:          Sun Oct 27 2024 22:53:52 GMT-0400 (Eastern Daylight Time)
+[debug] [2024-10-28T02:53:52.924Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-10-28T02:53:52.925Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[info] i  Firebase optionally collects CLI and Emulator Suite usage and error reporting information to help improve our products. Data is collected in accordance with Google's privacy policy (https://policies.google.com/privacy) and is not used to identify you.
+ 
+[debug] [2024-10-28T02:53:53.173Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2024-10-28T02:53:53.173Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[warn] ⚠  Unable to fetch the CLI MOTD and remote config. This is not a fatal error, but may indicate an issue with your network connection. 
+[debug] [2024-10-28T02:53:53.175Z] Failed to fetch MOTD Error: EACCES: permission denied, mkdir '/Users/aditithakkar/.config/configstore'
+You don't have access to this file.
+
+[debug] [2024-10-28T02:54:01.970Z] Error: EACCES: permission denied, mkdir '/Users/aditithakkar/.config/configstore'
+You don't have access to this file.
+
+    at Object.mkdirSync (node:fs:1372:26)
+    at module.exports.sync (/Users/aditithakkar/cross-platform/GradebookApp-adithakk/node_modules/configstore/node_modules/make-dir/index.js:114:6)
+    at set all [as all] (/Users/aditithakkar/cross-platform/GradebookApp-adithakk/node_modules/configstore/index.js:59:12)
+    at Configstore.set (/Users/aditithakkar/cross-platform/GradebookApp-adithakk/node_modules/configstore/index.js:91:12)
+    at Command.actionFn (/Users/aditithakkar/cross-platform/GradebookApp-adithakk/node_modules/firebase-tools/lib/commands/login.js:36:35)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2024-10-28T02:54:02.243Z] Error: EACCES: permission denied, mkdir '/Users/aditithakkar/.config/configstore'
+You don't have access to this file.
+
+    at Object.mkdirSync (node:fs:1372:26)
+    at module.exports.sync (/Users/aditithakkar/cross-platform/GradebookApp-adithakk/node_modules/configstore/node_modules/make-dir/index.js:114:6)
+    at set all [as all] (/Users/aditithakkar/cross-platform/GradebookApp-adithakk/node_modules/configstore/index.js:59:12)
+    at Configstore.set (/Users/aditithakkar/cross-platform/GradebookApp-adithakk/node_modules/configstore/index.js:91:12)
+    at process.<anonymous> (/Users/aditithakkar/cross-platform/GradebookApp-adithakk/node_modules/firebase-tools/lib/bin/firebase.js:100:35)
+    at process.emit (node:events:531:35)
+    at process.emit (node:domain:488:12)
+    at process.exit (node:internal/process/per_thread:185:15)
+    at Timeout._onTimeout (/Users/aditithakkar/cross-platform/GradebookApp-adithakk/node_modules/firebase-tools/lib/errorOut.js:20:17)
+    at listOnTimeout (node:internal/timers:581:17)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2024-10-28T02:54:18.100Z] ----------------------------------------------------------------------
+[debug] [2024-10-28T02:54:18.102Z] Command:       /usr/local/bin/node /Users/aditithakkar/cross-platform/GradebookApp-adithakk/node_modules/.bin/firebase login
+[debug] [2024-10-28T02:54:18.102Z] CLI Version:   13.23.0
+[debug] [2024-10-28T02:54:18.102Z] Platform:      darwin
+[debug] [2024-10-28T02:54:18.102Z] Node Version:  v20.17.0
+[debug] [2024-10-28T02:54:18.102Z] Time:          Sun Oct 27 2024 22:54:18 GMT-0400 (Eastern Daylight Time)
+[debug] [2024-10-28T02:54:18.102Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-10-28T02:54:18.103Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[info] i  Firebase optionally collects CLI and Emulator Suite usage and error reporting information to help improve our products. Data is collected in accordance with Google's privacy policy (https://policies.google.com/privacy) and is not used to identify you.
+ 
+[debug] [2024-10-28T02:54:18.280Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2024-10-28T02:54:18.281Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[warn] ⚠  Unable to fetch the CLI MOTD and remote config. This is not a fatal error, but may indicate an issue with your network connection. 
+[debug] [2024-10-28T02:54:18.282Z] Failed to fetch MOTD Error: EACCES: permission denied, mkdir '/Users/aditithakkar/.config/configstore'
+You don't have access to this file.
+
+[debug] [2024-10-28T02:54:28.987Z] Error: EACCES: permission denied, mkdir '/Users/aditithakkar/.config/configstore'
+You don't have access to this file.
+
+    at Object.mkdirSync (node:fs:1372:26)
+    at module.exports.sync (/Users/aditithakkar/cross-platform/GradebookApp-adithakk/node_modules/configstore/node_modules/make-dir/index.js:114:6)
+    at set all [as all] (/Users/aditithakkar/cross-platform/GradebookApp-adithakk/node_modules/configstore/index.js:59:12)
+    at Configstore.set (/Users/aditithakkar/cross-platform/GradebookApp-adithakk/node_modules/configstore/index.js:91:12)
+    at Command.actionFn (/Users/aditithakkar/cross-platform/GradebookApp-adithakk/node_modules/firebase-tools/lib/commands/login.js:36:35)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2024-10-28T02:54:29.258Z] Error: EACCES: permission denied, mkdir '/Users/aditithakkar/.config/configstore'
+You don't have access to this file.
+
+    at Object.mkdirSync (node:fs:1372:26)
+    at module.exports.sync (/Users/aditithakkar/cross-platform/GradebookApp-adithakk/node_modules/configstore/node_modules/make-dir/index.js:114:6)
+    at set all [as all] (/Users/aditithakkar/cross-platform/GradebookApp-adithakk/node_modules/configstore/index.js:59:12)
+    at Configstore.set (/Users/aditithakkar/cross-platform/GradebookApp-adithakk/node_modules/configstore/index.js:91:12)
+    at process.<anonymous> (/Users/aditithakkar/cross-platform/GradebookApp-adithakk/node_modules/firebase-tools/lib/bin/firebase.js:100:35)
+    at process.emit (node:events:531:35)
+    at process.emit (node:domain:488:12)
+    at process.exit (node:internal/process/per_thread:185:15)
+    at Timeout._onTimeout (/Users/aditithakkar/cross-platform/GradebookApp-adithakk/node_modules/firebase-tools/lib/errorOut.js:20:17)
+    at listOnTimeout (node:internal/timers:581:17)
+[error] 
+[error] Error: An unexpected error has occurred.

@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": false,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "typeRoots": ["node_modules/@types", "../src/types"],
+    "module": "es2020",
+    "moduleResolution": "node",
+    "target": "ES2017",
+    "outDir": "dist",
+    "lib": ["ES2020", "DOM"],
+    "jsx": "react",
+    "sourceMap": true,
+    "rootDirs": ["src", "../src", "common"],
+    "strict": true /* enable all strict type-checking options */
+  },
+  "ts-node": {
+    "esm": true
+  },
+  "include": ["src/**/*", "common/**/*"]
+}
