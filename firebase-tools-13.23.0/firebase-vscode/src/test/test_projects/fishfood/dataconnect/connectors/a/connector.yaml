@@ -1,3 +1,0 @@
-connectorId: "a"
-generate?:
-  outputDir: ../../a_connector_js_sdk

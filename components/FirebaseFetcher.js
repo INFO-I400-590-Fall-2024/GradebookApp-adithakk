@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import { View, Text } from 'react-native';
 import { collection, getDocs } from 'firebase/firestore';
-import { db } from '../../firebase.config';
-
+import { db } from '../firebase.config';
 export default function FirebaseFetcher() {
   const [students, setStudents] = useState([]);
 
@@ -22,7 +21,7 @@ export default function FirebaseFetcher() {
   return (
     <View>
       {students.map((student) => (
-        <Text key={student.id}>{student.name}</Text>
+        <Text key={student.id}>{student.Name}</Text>
       ))}
     </View>
   );

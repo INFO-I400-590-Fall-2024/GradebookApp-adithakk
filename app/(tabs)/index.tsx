@@ -1,70 +1,141 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import React, { useState } from 'react';
+import { Text, View, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
+import { collection, addDoc } from 'firebase/firestore';
+import FirebaseFetcher from "../../components/FirebaseFetcher";
+import { db } from "../../firebase.config";
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+async function addStudent(studentData: object, setError: React.Dispatch<React.SetStateAction<string>>, setSuccess: React.Dispatch<React.SetStateAction<string>>) {
+  try {
+    const docRef = await addDoc(collection(db, 'students'), studentData);
+    console.log('Document written with ID: ', docRef.id);
+    setError(''); // Clear any previous error message
+    setSuccess('Student added successfully!');
+  } catch (e) {
+    console.error('Error adding document: ', e);
+    setError('Failed to add student');
+    setSuccess(''); // Clear any success message if there's an error
+  }
+}
 
-export default function HomeScreen() {
+export default function Index() {
+  const [name, setName] = useState('');
+  const [grades, setGrades] = useState('');
+  const [score, setScore] = useState('');
+  const [absences, setAbsences] = useState('');
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
+
+  const handleAddStudent = () => {
+    if (!name || !grades || !score || !absences) {
+      setError('All fields are required.');
+      setSuccess('');
+      return;
+    }
+    
+    const studentData = {
+      name: name.trim(),
+      grades: grades.trim(),
+      score: parseFloat(score),
+      absences: parseInt(absences, 10),
+    };
+    
+    addStudent(studentData, setError, setSuccess);
+    setName('');
+    setGrades('');
+    setScore('');
+    setAbsences('');
+  };
+
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({ ios: 'cmd + d', android: 'cmd + m' })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+    <View style={styles.container}>
+      <FirebaseFetcher />
+      {/* <Text style={styles.title}>Add a New Student</Text> */}
+      
+      <TextInput
+        placeholder="Name"
+        value={name}
+        onChangeText={setName}
+        style={styles.input}
+      />
+      
+      <TextInput
+        placeholder="Grades"
+        value={grades}
+        onChangeText={setGrades}
+        style={styles.input}
+      />
+      
+      <TextInput
+        placeholder="Score"
+        value={score}
+        onChangeText={setScore}
+        keyboardType="numeric"
+        style={styles.input}
+      />
+      
+      <TextInput
+        placeholder="Absences"
+        value={absences}
+        onChangeText={setAbsences}
+        keyboardType="numeric"
+        style={styles.input}
+      />
+      
+      <TouchableOpacity style={styles.button} onPress={handleAddStudent}>
+        <Text style={styles.buttonText}>Add Student</Text>
+      </TouchableOpacity>
+
+      {error ? <Text style={styles.errorText}>{error}</Text> : null}
+      {success ? <Text style={styles.successText}>{success}</Text> : null}
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    padding: 16,
+    backgroundColor: '#f8f9fa',
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: '600',
+    marginBottom: 24,
+    textAlign: 'center',
+    color: '#333',
+  },
+  input: {
+    height: 48,
+    borderColor: '#ddd',
+    borderWidth: 1,
+    borderRadius: 8,
+    paddingHorizontal: 12,
+    marginBottom: 16,
+    backgroundColor: '#fff',
+  },
+  button: {
+    backgroundColor: '#FF4500',
+    paddingVertical: 12,
+    borderRadius: 8,
     alignItems: 'center',
-    gap: 8,
+    marginTop: 12,
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+  buttonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: '600',
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  errorText: {
+    color: 'red',
+    fontSize: 14,
+    marginTop: 8,
+    textAlign: 'center',
+  },
+  successText: {
+    color: 'green',
+    fontSize: 14,
+    marginTop: 8,
+    textAlign: 'center',
   },
 });
